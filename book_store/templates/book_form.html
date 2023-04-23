@@ -1,0 +1,35 @@
+<form method="POST" style="padding: 1%;">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset id="title-field" class="form-space">
+            {{ form.title(class = "form-control", placeholder="Title") }}
+        </fieldset>
+        <fieldset id="author-field" class="form-space">
+            {{ form.author(class = "form-control", placeholder="Author") }}
+        </fieldset>
+        <fieldset id="published-date-field" class="form-space">
+            {{ form.published_date(class = "form-control", placeholder="Published Date") }}
+        </fieldset>
+        <fieldset id="publisher-field" class="form-space">
+            {{ form.publisher(class = "form-control", placeholder="Publisher") }}
+        </fieldset>
+        <fieldset id="isbn-field" class="form-space">
+            {{ form.isbn(class = "form-control", placeholder="ISBN") }}
+        </fieldset>
+        <fieldset id="description-field" class="form-space">
+            {{ form.description(class = "form-control", placeholder="Description") }}
+        </fieldset>
+        <fieldset id="price-field" class="form-space">
+            {{ form.price(class = "form-control", placeholder="Price") }}
+        </fieldset>
+        <fieldset id="stock-quantity-field" class="form-space">
+            {{ form.stock_quantity(class = "form-control", placeholder="Stock Quantity") }}
+        </fieldset>
+        <fieldset id="image-url-field" class="form-space">
+            {{ form.image_url(class = "form-control", placeholder="Image URL") }}
+        </fieldset>
+
+        <!-- Submit Button Area -->
+        {{ form.submit_button(class = "btn btn-primary btn-block mt-2") }}
+    </div>   
+</form>

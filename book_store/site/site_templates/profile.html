@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Flask Flash Message to user  -->
+{% with messages = get_flashed_messages(with_categories = true) %}
+{% if messages %}
+{% for cat, msg in messages %}
+{% if cat == 'auth-success' %}
+<div class="container">
+    {{ msg }}
+    <button type="button" class="close" data-dismiss="alert" onclick="this.parentElement.style.display='none'">
+        &times;</button>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+<br>
+<br>
+<div style="text-align: center;">
+    <h2>Welcome to Books Store, {{ current_user.username }}</h2>
+
+    <div class="templatemo_content">
+        <h4>Here are your profile details:</h4>
+        <p class="list-group-item">Email: {{ current_user.email }}</h2>
+        <p class="list-group-item">Token: {{ current_user.token }}</h2>
+    </div>
+
+</div>
+
+<br><br>
+
+<header class="hero-section" style="padding: 7%; padding-top: 3%;">
+
+    <main class="container book_form">
+        <div class="row">
+            <aside class="col-12">
+                <h2 style="text-align: center;">Add Book!</h2>
+                {% include 'book_form.html' %}
+            </aside>
+        </div>
+    </main>
+
+</header>
+
+
+<div class="container">
+    <div class="row mt-4">
+        {% for b in books %}
+        <div class="col-4" style="margin: 4%; color: teal;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" style="width: 15%; height: 10%;" src="{{ b.image_url }}" alt="{{ b.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ b.title }} ${{ b.price }} </h5>
+                    <p class="card-text">{{ b.author }}</p>
+                    <p>{{ b.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock content %}
